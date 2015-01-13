@@ -44,6 +44,7 @@ import com.shapesecurity.shift.ast.statement.FunctionDeclaration;
 import com.shapesecurity.shift.ast.statement.WithStatement;
 import com.shapesecurity.shift.path.Branch;
 import com.shapesecurity.shift.scope.Declaration.Kind;
+import com.shapesecurity.shift.transformation.ProjectionTree;
 import com.shapesecurity.shift.visitor.MonoidalReducer;
 
 import java.util.HashMap;
@@ -540,7 +541,7 @@ public final class ScopeAnalyzer extends MonoidalReducer<ScopeAnalyzer.State> {
       ProjectionTree<Declaration> tree =
           declMap.containsKey(id.name) ?
               declMap.get(id.name).add(decl, path) :
-              new ProjectionTree<>(decl, path);
+              ProjectionTree.create(decl, path);
       declMap.put(id.name, tree);
       Set<String> functionScopedInit = this.functionScopedInit;
       if (hasInit && kind.isFunctionScoped) {
@@ -592,7 +593,7 @@ public final class ScopeAnalyzer extends MonoidalReducer<ScopeAnalyzer.State> {
       ProjectionTree<Reference> tree =
           free.containsKey(ref.node.name) ?
               free.get(ref.node.name).add(ref, ref.path) :
-              new ProjectionTree<>(ref, ref.path);
+              ProjectionTree.create(ref, ref.path);
       free.put(ref.node.name, tree);
       return new State(
           free,

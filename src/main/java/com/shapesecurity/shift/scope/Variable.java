@@ -16,6 +16,8 @@
 
 package com.shapesecurity.shift.scope;
 
+import com.shapesecurity.shift.transformation.ProjectionTree;
+
 import org.jetbrains.annotations.NotNull;
 
 public class Variable {

@@ -55,6 +55,7 @@ import com.shapesecurity.shift.parser.JsError;
 import com.shapesecurity.shift.parser.Parser;
 import com.shapesecurity.shift.path.Branch;
 import com.shapesecurity.shift.path.IndexedBranch;
+import com.shapesecurity.shift.transformation.ProjectionTree;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -1420,14 +1421,14 @@ public class ScopeTest extends TestBase {
       Variable variable = maybeVariable.just();
 
       List<IdentifierP> declarations = variableEntry.getValue().a;
-      Assert.assertEquals(variable.declarations.length(), declarations.length);
+      Assert.assertEquals(variable.declarations.length, declarations.length);
       for (final IdentifierP node : declarations) {
         assertTrue(variable.declarations.exists(declaration -> declaration.path.equals(node.from) && declaration.node
             .equals(node.node)));
       }
 
       List<IdentifierP> refs = variableEntry.getValue().b;
-      Assert.assertEquals(variable.references.length(), refs.length);
+      Assert.assertEquals(variable.references.length, refs.length);
       for (final IdentifierP node : refs) {
         Maybe<Reference> maybeRef = variable.references.find(reference -> reference.path.equals(node.from)
             && reference.node.equals(node.node));

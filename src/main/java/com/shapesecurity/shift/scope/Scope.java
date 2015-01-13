@@ -25,10 +25,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.shapesecurity.functional.data.List;
-import com.shapesecurity.functional.data.Maybe;
 import com.shapesecurity.shift.ast.Identifier;
-import com.shapesecurity.shift.ast.Node;
+import com.shapesecurity.shift.transformation.ProjectionTree;
 
 import org.jetbrains.annotations.NotNull;
 

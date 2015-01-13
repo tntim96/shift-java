@@ -19,6 +19,7 @@ package com.shapesecurity.shift.scope;
 import com.shapesecurity.functional.data.List;
 import com.shapesecurity.shift.ast.Identifier;
 import com.shapesecurity.shift.ast.Node;
+import com.shapesecurity.shift.transformation.ProjectionTree;
 
 import java.util.HashMap;
 import java.util.Map;
